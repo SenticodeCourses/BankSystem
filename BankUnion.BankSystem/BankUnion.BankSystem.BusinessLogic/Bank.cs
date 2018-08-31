@@ -6,25 +6,27 @@ using System.Threading.Tasks;
 
 namespace BankUnion.BankSystem.BusinessLogic
 {
-  class Bank
-  {
-    BankAccountDepartment bankAccountDepartment = BankAccountDepartment.GetBankAccountDepartment();
-    ClientDepartment clientDepartment = ClientDepartment.GetClientDepartment();
-    LoanDepartment loanDepartment = LoanDepartment.GetLoanDepartment();
-    decimal RefinancingRate = 10m;
-
-    public static bool CheckLoanAvailability()
+    class Bank
     {
-      return false;
-    }
-    public void Refill()
-    {
+        BankAccountDepartment bankAccountDepartment = BankAccountDepartment.GetBankAccountDepartment();
+        ClientDepartment clientDepartment = ClientDepartment.GetClientDepartment();
+        LoanDepartment loanDepartment = LoanDepartment.GetLoanDepartment();
+        decimal RefinancingRate = 10m;
+
+        public static bool CheckLoanAvailability()
+        {
+            return false;
+        }
+
+        public void Refill()
+        {
+
+        }
+
+        public void CashWithdrawal()
+        {
+
+        }
 
     }
-    public void CashWithdrawal()
-    {
-
-    }
-
-  }
 }

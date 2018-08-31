@@ -6,39 +6,41 @@ using System.Threading.Tasks;
 
 namespace BankUnion.BankSystem.BusinessLogic
 {
-  class BankAccountDepartment
-  {
-    private static BankAccountDepartment _bankAccountDepartment;
-    Dictionary<string, BankAccount> bankAccountBase = new Dictionary<string, BankAccount>();
-    private BankAccountDepartment()
-    { }
-    public static BankAccountDepartment GetBankAccountDepartment()
+    class BankAccountDepartment
     {
-      if (_bankAccountDepartment == null)
-      {
-        _bankAccountDepartment = new BankAccountDepartment();
-      }
-      return _bankAccountDepartment;
+        private static BankAccountDepartment _bankAccountDepartment;
+        Dictionary<string, BankAccount> bankAccountBase = new Dictionary<string, BankAccount>();
+
+        private BankAccountDepartment()
+        { }
+
+        public static BankAccountDepartment GetBankAccountDepartment()
+        {
+            if (_bankAccountDepartment == null)
+            {
+                _bankAccountDepartment = new BankAccountDepartment();
+            }
+            return _bankAccountDepartment;
+        }
+
+        public void CreateBankAccount()
+        {
+
+        }
+
+        public void DeleteBankAccount()
+        {
+
+        }
+
+        public void Refill()
+        {
+
+        }
+
+        public void CashWithdrawal()
+        {
+
+        }
     }
-
-    public void CreateBankAccount()
-    {
-
-    }
-
-    public void DeleteBankAccount()
-    {
-
-    }
-
-    public void Refill()
-    {
-
-    }
-
-    public void CashWithdrawal()
-    {
-
-    }
-  }
 }
