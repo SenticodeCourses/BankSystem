@@ -10,7 +10,13 @@ namespace BankUnion.BankSystem.BusinessLogic
     {
         public int Id;
         int ClientId;
-        decimal SumLoan;
-        decimal PaidAmount;
+        public decimal SumLoan { get; set; }
+        public decimal PaidAmount { get; set; }
+        public Dictionary<DateTime, decimal> RepaymentHistory = new Dictionary<DateTime, decimal>(); 
+
+        public void UpdateRepaymentHistory(decimal sum)
+        {
+            RepaymentHistory.Add(DateTime.Now, sum);
+        }
     }
 }
