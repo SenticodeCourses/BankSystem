@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankUnion.BankSystem.BusinessLogic
 {
-    class Client
+    public class Client
     {
         public int Id;
         public string FullName;
