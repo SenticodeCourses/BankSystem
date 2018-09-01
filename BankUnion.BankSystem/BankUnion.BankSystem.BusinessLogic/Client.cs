@@ -20,7 +20,7 @@ namespace BankUnion.BankSystem.BusinessLogic
         public bool IsHasCriminalRecord;
 
         public List<int> loan = new List<int>();
-        public List<int> bankAccount = new List<int>();
+        public List<string> bankAccount = new List<string>();
     }
 
     public enum SexEnum

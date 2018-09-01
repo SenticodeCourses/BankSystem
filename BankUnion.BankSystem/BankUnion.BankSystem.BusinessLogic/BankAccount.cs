@@ -8,8 +8,8 @@ namespace BankUnion.BankSystem.BusinessLogic
 {
     class BankAccount
     {
-        string Id;
-        int ClientId;
+        public string Id;
+        public int ClientId;
         public decimal Balance;
     }
 }

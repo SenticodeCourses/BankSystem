@@ -10,7 +10,7 @@ namespace BankUnion.BankSystem.BusinessLogic
     {
         public int Id;
         int ClientId;
-        decimal SumLoan;
-        decimal PaidAmount;
+        public decimal SumLoan;
+        public decimal PaidAmount;
     }
 }
