@@ -28,9 +28,38 @@ namespace BankUnion.BankSystem.BusinessLogic
 
         }
 
-        public bool CheckLoanAvailability()
+        public bool CheckLoanAvailability(decimal loanAmount, int clientId)
         {
-            return false;
+            int summScore = 0;
+            
+                if (ClientDepartment.ClientBase.TryGetValue(clientId, out var client))
+                {
+                    if (client.Age >= 23 && client.Age <= 50)
+                    {
+                        summScore += 3;
+                    }
+                    else
+                    {
+                        summScore += 1;
+                    }
+
+                    if (client.AverageWage / loanAmount >= 0.05m)
+                    {
+                        summScore += 2;
+                    }
+                    else if (client.AverageWage / loanAmount >= 0.5m)
+                    {
+                        summScore += 5;
+                    }
+
+                    int amountAccount = 0;
+                    foreach (var b in client.bankAccount)
+                    {
+                        
+                    }
+                }
+            
+                    return false;
         }
 
         public void GetLoan()

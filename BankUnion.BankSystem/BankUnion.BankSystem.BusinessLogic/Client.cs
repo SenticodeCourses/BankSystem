@@ -9,7 +9,23 @@ namespace BankUnion.BankSystem.BusinessLogic
     class Client
     {
         public int Id;
+        public string FullName;
+        public bool IsFatallyIll;
+        public bool IsHasRealState;
+        public SexEnum Sex;
+        public decimal AverageWage;
+        public int Age;
+        public bool IsHasMinorChildren;
+        public bool IsHasHigherEducation;
+        public bool IsHasCriminalRecord;
+
         public List<int> loan = new List<int>();
         public List<int> bankAccount = new List<int>();
+    }
+
+    public enum SexEnum
+    {
+        male,
+        female
     }
 }

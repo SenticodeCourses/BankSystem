@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BankUnion.BankSystem.BusinessLogic
 {
-    class ClientDepartment
+    class  ClientDepartment : IDisposable
     {
         private static ClientDepartment _clientDepartment;
-        Dictionary<int, Client> clientBase = new Dictionary<int, Client>();
+        public static Dictionary<int, Client> ClientBase = new Dictionary<int, Client>();
 
         private ClientDepartment()
         { }
@@ -29,6 +29,11 @@ namespace BankUnion.BankSystem.BusinessLogic
         }
 
         public void CheckLoanHistory()
+        {
+
+        }
+
+        public void Dispose()
         {
 
         }

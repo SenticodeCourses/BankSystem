@@ -9,7 +9,7 @@ namespace BankUnion.BankSystem.BusinessLogic
     class BankAccountDepartment
     {
         private static BankAccountDepartment _bankAccountDepartment;
-        Dictionary<string, BankAccount> bankAccountBase = new Dictionary<string, BankAccount>();
+        public static Dictionary<string, BankAccount> BankAccountBase = new Dictionary<string, BankAccount>();
 
         private BankAccountDepartment()
         { }
