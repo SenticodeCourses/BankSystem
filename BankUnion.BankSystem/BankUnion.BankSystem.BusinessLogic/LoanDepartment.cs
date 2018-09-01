@@ -9,6 +9,7 @@ namespace BankUnion.BankSystem.BusinessLogic
     class LoanDepartment
     {
         private static LoanDepartment _loanDepartment;
+<<<<<<< HEAD
         public static Dictionary<int, Loan> LoanBase = new Dictionary<int, Loan>();
 
         private LoanDepartment()
@@ -124,5 +125,8 @@ namespace BankUnion.BankSystem.BusinessLogic
 
             }
         }
+=======
+        Dictionary<int, Loan> loanBase = new Dictionary<int, Loan>();
+>>>>>>> DatabaseStorage
     }
 }

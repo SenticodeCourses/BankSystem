@@ -42,11 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bank.cs" />
     <Compile Include="BankAccount.cs" />
     <Compile Include="BankAccountDepartment.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientDepartment.cs" />
+    <Compile Include="DatabaseManager.cs" />
     <Compile Include="Loan.cs" />
     <Compile Include="LoanDepartment.cs" />
     <Compile Include="Program.cs" />
