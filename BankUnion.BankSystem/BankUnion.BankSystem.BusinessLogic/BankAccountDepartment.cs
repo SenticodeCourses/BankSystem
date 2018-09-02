@@ -24,13 +24,13 @@ namespace BankUnion.BankSystem.BusinessLogic
         {
             var bankAcc = new BankAccount {ClientId = client.Id};
             BankAccountBase.Add(bankAcc.Id, bankAcc);
-            client.bankAccount.Add(bankAcc.InternalId);
+            client.bankAccount.Add(bankAcc.Id);
             AccountClientDict.Add(bankAcc, client);
         }
 
         public void DeleteBankAccount(string id)
         {
-            AccountClientDict[BankAccountBase[id]].bankAccount.Remove(BankAccountBase[id].InternalId);
+            AccountClientDict[BankAccountBase[id]].bankAccount.Remove(BankAccountBase[id].Id);
             AccountClientDict.Remove(BankAccountBase[id]);
             BankAccountBase.Remove(id);
         }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BankUnion.BankSystem.BusinessLogic
 {
-    class Loan
+    public class Loan
     {
         public int Id;
         int ClientId;
-        decimal SumLoan;
-        decimal PaidAmount;
+        public decimal SumLoan;
+        public decimal PaidAmount;
     }
 }

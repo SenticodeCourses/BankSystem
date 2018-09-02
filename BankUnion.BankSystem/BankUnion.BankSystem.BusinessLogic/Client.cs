@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankUnion.BankSystem.BusinessLogic
 {
-    class Client
+    public class Client
     {
         public int Id;
         public string FullName;
@@ -20,7 +20,7 @@ namespace BankUnion.BankSystem.BusinessLogic
         public bool IsHasCriminalRecord;
 
         public List<int> loan = new List<int>();
-        public List<int> bankAccount = new List<int>();
+        public List<string> bankAccount = new List<string>();
     }
 
     public enum SexEnum

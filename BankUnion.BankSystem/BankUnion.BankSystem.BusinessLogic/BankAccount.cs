@@ -4,19 +4,17 @@ using System.Text;
 
 namespace BankUnion.BankSystem.BusinessLogic
 {
-    class BankAccount
+    public class BankAccount
     {
         public string Id { get; }
         // ReSharper disable once RedundantDefaultMemberInitializer
         private static int _stId = 0;
-        public int InternalId { get; }
         public int ClientId { get; set; }
         public decimal Balance;
 
         public BankAccount()
         {
             _stId++;
-            InternalId = _stId;
             Id = FormatId(_stId);
         }
 
