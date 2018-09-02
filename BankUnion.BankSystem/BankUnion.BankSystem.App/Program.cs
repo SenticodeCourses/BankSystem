@@ -11,6 +11,7 @@ namespace BankUnion.BankSystem.App
     {
         static void Main(string[] args)
         {
+
             var clientBase = new Dictionary<int, Client>
             {
                 [21] = new Client(),
@@ -55,6 +56,7 @@ namespace BankUnion.BankSystem.App
             dbManager.ShowDatabase(typeof(Loan));
 
             Console.ReadLine();
+
         }
     }
 }
