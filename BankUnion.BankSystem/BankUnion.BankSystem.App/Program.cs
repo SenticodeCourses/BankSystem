@@ -46,14 +46,16 @@ namespace BankUnion.BankSystem.App
 
             var dbManager = new DatabaseManager();
 
-            dbManager.SaveDatabase<Client>(clientBase);
-            dbManager.SaveDatabase<BankAccount>(bankAccountBase);
-            dbManager.SaveDatabase<Loan>(loanBase);
+            dbManager.SaveDatabase(clientBase);
+            dbManager.SaveDatabase(bankAccountBase);
+            dbManager.SaveDatabase(loanBase);
+            
+            dbManager.DelTuple<Client>(21);
 
             dbManager.ShowDatabase(typeof(Client));
             dbManager.ShowDatabase(typeof(BankAccount));
             dbManager.ShowDatabase(typeof(Loan));
-
+            
             Console.ReadLine();
         }
     }
