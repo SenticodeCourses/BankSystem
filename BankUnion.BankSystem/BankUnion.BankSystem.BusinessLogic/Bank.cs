@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankUnion.BankSystem.BusinessLogic
 {
-    class Bank
+    public class Bank
     {
         BankAccountDepartment bankAccountDepartment = BankAccountDepartment.GetBankAccountDepartment();
         ClientDepartment clientDepartment = ClientDepartment.GetClientDepartment();
@@ -38,6 +38,17 @@ namespace BankUnion.BankSystem.BusinessLogic
         public void CashWithdrawal()
         {
 
+        }
+
+        public void ShowBankLoanHistory()
+        {
+            if (ClientDepartment.ClientBase.Count != 0)
+            {
+                foreach (KeyValuePair<int, Client> client in ClientDepartment.ClientBase)
+                {
+                    ClientDepartment.GetClientDepartment().ShowClientLoanHistory(client.Key);
+                }
+            }
         }
 
     }
