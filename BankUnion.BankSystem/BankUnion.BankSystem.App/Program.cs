@@ -52,12 +52,11 @@ namespace BankUnion.BankSystem.App
             dbManager.SaveDatabase(loanBase);
             
             dbManager.DelTuple<Client>(21);
-            dbManager.UpdateDB<Client>(228);
 
             dbManager.ShowDatabase(typeof(Client));
             dbManager.ShowDatabase(typeof(BankAccount));
             dbManager.ShowDatabase(typeof(Loan));
-
+            
             Console.ReadLine();
 
         }

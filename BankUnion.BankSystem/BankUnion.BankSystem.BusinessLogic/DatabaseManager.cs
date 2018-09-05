@@ -149,7 +149,7 @@ namespace BankUnion.BankSystem.BusinessLogic
             var nodes = xmlDoc.Descendants(typeof(TBase).ToString().Split('.').Last());
             var nodesToUpdate = nodes
                 .Where(x => x.Descendants(KEY_STRING).First().Value == key.ToString());
-            
+
             if (nodesToUpdate.Any())
             {
                 //TODO предложить пользователю ввести новые данные
