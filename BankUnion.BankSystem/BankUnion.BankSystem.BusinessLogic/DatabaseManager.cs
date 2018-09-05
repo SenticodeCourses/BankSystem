@@ -14,6 +14,7 @@ namespace BankUnion.BankSystem.BusinessLogic
         const string CLIENT_FILE = "ClientDatabase.xml";
         const string LOAN_FILE = "LoanDatabase.xml";
         const string BANK_ACCOUNT_FILE = "BankAccountDatabase.xml";
+        const string KEY_STRING = "Key";
 
         readonly Dictionary<Type, string> _pathways;
 
@@ -54,7 +55,7 @@ namespace BankUnion.BankSystem.BusinessLogic
             foreach (var pair in database)
             {
                 var node = new XElement(typeof(TBase).ToString().Split('.').Last());
-                node.Add(new XElement("Key", pair.Key));
+                node.Add(new XElement(KEY_STRING, pair.Key));
 
                 foreach (var field in fields)
                 {
@@ -72,14 +73,27 @@ namespace BankUnion.BankSystem.BusinessLogic
 
         public void ShowDatabase(Type databaseType)
         {
+            if (!(databaseType == typeof(Client) ||
+                  databaseType == typeof(Loan) ||
+                  databaseType == typeof(BankAccount)))
+            {
+                return;
+            }
+
             var path = _pathways[databaseType];
+
+            if (!File.Exists(path))
+            {
+                CreateXml(path);
+            }
+
             var xmlDoc = XDocument.Load(path);
             var fields = databaseType.GetFields();
             var nodes = xmlDoc.Descendants(databaseType.ToString().Split('.').Last());
 
             foreach (var node in nodes)
             {
-                Console.WriteLine("Key: " + node.Element("Key")?.Value);
+                Console.WriteLine(KEY_STRING + ": " + node.Element(KEY_STRING)?.Value);
 
                 foreach (var field in fields)
                 {
@@ -88,6 +102,66 @@ namespace BankUnion.BankSystem.BusinessLogic
 
                 Console.WriteLine();
             }
+        }
+
+        public void DelTuple<TBase>(int key)
+        {
+            if (!(typeof(TBase) == typeof(Client) ||
+                  typeof(TBase) == typeof(Loan) ||
+                  typeof(TBase) == typeof(BankAccount)))
+            {
+                return;
+            }
+
+            var path = _pathways[typeof(TBase)];
+
+            if (!File.Exists(path))
+            {
+                CreateXml(path);
+            }
+
+            var xmlDoc = XDocument.Load(path);
+            var nodes = xmlDoc.Descendants(typeof(TBase).ToString().Split('.').Last());
+            var node = nodes
+                .Where(x => x.Descendants(KEY_STRING).First().Value == key.ToString()).First();
+
+            node.Remove();
+            xmlDoc.Save(path);
+        }
+
+        public void UpdateDB<TBase>(int key)
+        {
+            if (!(typeof(TBase) == typeof(Client) ||
+                  typeof(TBase) == typeof(Loan) ||
+                  typeof(TBase) == typeof(BankAccount)))
+            {
+                return;
+            }
+
+            var path = _pathways[typeof(TBase)];
+
+            if (!File.Exists(path))
+            {
+                CreateXml(path);
+            }
+
+            var xmlDoc = XDocument.Load(path);
+            var nodes = xmlDoc.Descendants(typeof(TBase).ToString().Split('.').Last());
+            var nodesToUpdate = nodes
+                .Where(x => x.Descendants(KEY_STRING).First().Value == key.ToString());
+            
+            if (nodesToUpdate.Any())
+            {
+                //TODO предложить пользователю ввести новые данные
+            }
+            else
+            {
+                //TODO предложить пользователю ввести новые данные
+                var newNode = new XElement(typeof(TBase).ToString().Split('.').Last(), "");
+                //xmlDoc.Add(newNode);
+            }
+
+            xmlDoc.Save(path);
         }
 
         void CreateXml(string path)

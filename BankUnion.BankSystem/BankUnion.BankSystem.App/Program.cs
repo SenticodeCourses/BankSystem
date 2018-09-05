@@ -49,6 +49,9 @@ namespace BankUnion.BankSystem.App
             dbManager.SaveDatabase(clientBase);
             dbManager.SaveDatabase(bankAccountBase);
             dbManager.SaveDatabase(loanBase);
+            
+            dbManager.DelTuple<Client>(21);
+            dbManager.UpdateDB<Client>(228);
 
             dbManager.ShowDatabase(typeof(Client));
             dbManager.ShowDatabase(typeof(BankAccount));
