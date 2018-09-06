@@ -47,6 +47,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="ClientDepartment.cs" />
     <Compile Include="DatabaseManager.cs" />
+    <Compile Include="Iban.cs" />
     <Compile Include="Loan.cs" />
     <Compile Include="LoanDepartment.cs" />
     <Compile Include="Program.cs" />

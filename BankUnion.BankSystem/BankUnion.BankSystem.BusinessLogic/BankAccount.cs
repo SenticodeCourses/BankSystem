@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Text;
 
 namespace BankUnion.BankSystem.BusinessLogic
 {
@@ -15,16 +14,15 @@ namespace BankUnion.BankSystem.BusinessLogic
         public BankAccount()
         {
             _stId++;
-            Id = FormatId(_stId);
+            Id = Iban.Generate(TransformIdToString(_stId));
         }
 
-        public static string FormatId(int stId)
+        public static string TransformIdToString(int stId)
         {
             const int digitsNumber = 16;
-            var id = new StringBuilder().Append(Convert.ToString(stId));
-                id.Insert(0, Enumerable.Range(1, digitsNumber - id.Length)
-                    .Select(i => '0').ToString());
-            return id.ToString();
+            var id = Convert.ToString(stId);
+            return Enumerable.Range(1, digitsNumber - id.Length)
+                     .Select(i => '0')+ id;
         }
     }
 }
